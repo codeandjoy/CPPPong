@@ -10,3 +10,7 @@ Ball::Ball(){
 
     this->setPosition(sf::Vector2f(1000/2-5, 700/2-5));
 }
+
+void Ball::update(float dt){
+    this->setPosition(this->getPosition() + movementVector * dt);
+}

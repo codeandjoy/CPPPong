@@ -38,7 +38,8 @@ int main(){
         window->clear();
 
         racket->update(dt);
-        
+        ball->update(dt);
+
         keepWithinWindow(window, racket);
         keepWithinWindow(window, ball);
 
