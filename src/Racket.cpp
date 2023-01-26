@@ -8,8 +8,6 @@ Racket::Racket(){
         exit(1);
     }
     this->setTexture(texture);
-    
-    this->setPosition(sf::Vector2f(1000/2+50, 700-50));
 }
 
 void Racket::update(float dt){
