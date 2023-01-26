@@ -1,9 +1,14 @@
+#include <filesystem>
 #include "Racket.h"
 #include "./utils/approach.h"
 
 Racket::Racket(){
-    this->setSize(sf::Vector2f(100, 10));
-    this->setFillColor(sf::Color::White);
+    if(!texture.loadFromFile(std::filesystem::current_path().string() + "/src/assets/racket.png")){
+        printf("Can not load racket texture\n");
+        exit(1);
+    }
+    this->setTexture(texture);
+    
     this->setPosition(sf::Vector2f(1000/2+50, 700-50));
 }
 

@@ -3,8 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 
-
-class Racket : public sf::RectangleShape{
+class Racket : public sf::Sprite{
     public:
     Racket();
     void update(float dt);
@@ -12,6 +11,7 @@ class Racket : public sf::RectangleShape{
     void setVelocityGoal(float goal);
 
     private:
+    sf::Texture texture;
     sf::Vector2f movementVector = sf::Vector2f(0, 0);
     float velocityGoal = 0;
 };

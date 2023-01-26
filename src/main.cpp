@@ -1,11 +1,12 @@
 #include <SFML/Graphics.hpp>
 
 #include "Racket.h"
+#include "./utils/keepWithinWindow.h"
 
 int main(){
     sf::RenderWindow *window = new sf::RenderWindow(sf::VideoMode(1000, 700), "Pong");
 
-    Racket racket;
+    Racket *racket = new Racket();
 
 
     sf::Clock deltaClock;
@@ -23,21 +24,22 @@ int main(){
 
         // Controls
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
-            racket.setVelocityGoal(-600);
+            racket->setVelocityGoal(-600);
         }
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
-            racket.setVelocityGoal(600);
+            racket->setVelocityGoal(600);
         }
         else{
-            racket.setVelocityGoal(0);
+            racket->setVelocityGoal(0);
         }
         //
 
         window->clear();
 
-        racket.update(dt);
+        racket->update(dt);
+        keepWithinWindow(window, racket);
 
-        window->draw(racket);
+        window->draw(*racket);
 
         window->display();
     }
