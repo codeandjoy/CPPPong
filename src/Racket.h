@@ -7,6 +7,13 @@
 class Racket : public sf::RectangleShape{
     public:
     Racket();
+    void update(float dt);
+
+    void setVelocityGoal(float goal);
+
+    private:
+    sf::Vector2f movementVector = sf::Vector2f(0, 0);
+    float velocityGoal = 0;
 };
 
 
