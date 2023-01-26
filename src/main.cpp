@@ -41,12 +41,14 @@ int main(){
         racket->update(dt);
         ball->update(dt);
 
-        onCollision(racket, ball, [](){
-            printf("Collision\n");
+        onCollision(racket, ball, [ball](){
+            ball->bounce();
         });
 
         keepWithinWindow(window, racket);
-        keepWithinWindow(window, ball);
+        keepWithinWindowWithResponse(window, ball, [ball](){
+            ball->bounce();
+        });
 
         window->draw(*racket);
         window->draw(*ball);

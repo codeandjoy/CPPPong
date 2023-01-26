@@ -8,10 +8,11 @@ class Ball : public sf::Sprite{
     Ball();
 
     void update(float dt);
+    void bounce();
 
     private:
     sf::Texture texture;
-    sf::Vector2f movementVector = sf::Vector2f(100, 100);
+    sf::Vector2f movementVector = sf::Vector2f(500, 500);
 };
 
 

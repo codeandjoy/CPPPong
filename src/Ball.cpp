@@ -14,3 +14,22 @@ Ball::Ball(){
 void Ball::update(float dt){
     this->setPosition(this->getPosition() + movementVector * dt);
 }
+
+void Ball::bounce(){
+    // btm right
+    if(movementVector.x > 0 && movementVector.y > 0){
+        movementVector = sf::Vector2f(movementVector.x, -movementVector.y);
+    }
+    // top right
+    else if(movementVector.x > 0 && movementVector.y < 0){
+        movementVector = sf::Vector2f(-movementVector.x, movementVector.y);
+    }
+    // top left
+    else if(movementVector.x < 0 && movementVector.y < 0){
+        movementVector = sf::Vector2f(movementVector.x, abs(movementVector.y));
+    }
+    // bottom right
+    else if(movementVector.x < 0 && movementVector.y > 0){
+        movementVector = sf::Vector2f(-movementVector.x, movementVector.y);
+    }
+}
