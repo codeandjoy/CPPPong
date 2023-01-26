@@ -3,6 +3,7 @@
 #include "Racket.h"
 #include "Ball.h"
 #include "./utils/keepWithinWindow.h"
+#include "./utils/onCollision.h"
 
 int main(){
     sf::RenderWindow *window = new sf::RenderWindow(sf::VideoMode(1000, 700), "Pong");
@@ -39,6 +40,10 @@ int main(){
 
         racket->update(dt);
         ball->update(dt);
+
+        onCollision(racket, ball, [](){
+            printf("Collision\n");
+        });
 
         keepWithinWindow(window, racket);
         keepWithinWindow(window, ball);
