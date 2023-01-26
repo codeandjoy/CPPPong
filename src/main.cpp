@@ -1,13 +1,14 @@
 #include <SFML/Graphics.hpp>
 
 #include "Racket.h"
+#include "Ball.h"
 #include "./utils/keepWithinWindow.h"
 
 int main(){
     sf::RenderWindow *window = new sf::RenderWindow(sf::VideoMode(1000, 700), "Pong");
 
     Racket *racket = new Racket();
-
+    Ball *ball = new Ball();
 
     sf::Clock deltaClock;
     while(window->isOpen()){
@@ -37,9 +38,12 @@ int main(){
         window->clear();
 
         racket->update(dt);
+        
         keepWithinWindow(window, racket);
+        keepWithinWindow(window, ball);
 
         window->draw(*racket);
+        window->draw(*ball);
 
         window->display();
     }

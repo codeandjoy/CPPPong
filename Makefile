@@ -1,7 +1,7 @@
 OUT = build/main.out
-_src = main.cpp Racket.cpp
+_src = main.cpp Racket.cpp Ball.cpp
 src = $(addprefix src/,$(_src))
-_obj = main.o Racket.o
+_obj = main.o Racket.o Ball.o
 obj = $(addprefix build/obj/,$(_obj))
 lib = -lsfml-graphics -lsfml-window -lsfml-system
 
