@@ -9,9 +9,9 @@ int main(){
     sf::RenderWindow *window = new sf::RenderWindow(sf::VideoMode(1000, 700), "Pong");
 
     Racket *racketP1 = new Racket();
-    racketP1->setPosition(sf::Vector2f(1000/2+50, 700-50));
+    racketP1->setPosition(sf::Vector2f(1000/2-50, 700-50));
     Racket *racketP2 = new Racket();
-    racketP2->setPosition(sf::Vector2f(1000/2+50, 50));
+    racketP2->setPosition(sf::Vector2f(1000/2-50, 50));
     Ball *ball = new Ball();
 
     sf::Clock deltaClock;
